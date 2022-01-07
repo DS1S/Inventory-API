@@ -1,0 +1,25 @@
+
+
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-backend-staging:
+    runs-on: ubuntu-latest
+    env:
+      MONGO_URI: ${{secrets.MONGO_URI}}
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Deploy API to Heroku
+        uses: AkhileshNS/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          heroku_app_name: "inventory-api-shopify"
+          buildpack: https://github.com/heroku/heroku-buildpack-python
+          appdir: .
+          
+      - run: echo "🍺🎉🥳 Backend Deployment Successfully Released! 🥳🎉🍺"
