@@ -2,4 +2,4 @@ fastapi
 uvicorn
 motor
 pyhumps
-dnspython
+pymongo[srv]
