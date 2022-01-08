@@ -29,3 +29,5 @@ cancel button in the top right if you have clicked "try it out".
 
 If you scroll to the bottom of an endpoint example, you can view the response schema of the request. Where a product id or warehouse id is required,
 you can use the get endpoint to retrieve a list of all warehouses and products which will include their ids as the _id field. 
+
+Also to note, the prices are stored in cents in order to prevent floating point overflow.
